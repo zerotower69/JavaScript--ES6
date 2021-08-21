@@ -83,7 +83,16 @@ new Promise((resolve,reject)=>{
 //1
 // 因为Promise属于宏任务，setTimeout属于微任务，在一次tick中，先Promise.then后setTimeout
 
+//----------------------
+// 栗子6：测试传入then方法
 
+function then(){
+    console.log("我是一个then方法");
+}
+
+const p6=Promise.resolve(then);
+console.log(p6);
+p6.then((result)=>console.log(result)) //没有立刻执行这个then方法
 
 
 

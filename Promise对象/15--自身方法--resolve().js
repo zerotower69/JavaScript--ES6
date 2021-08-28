@@ -44,7 +44,7 @@
 //
 // console.log(p2);//Promise { <pending> }
 //
-// p2.then((result)=>console.log(result))  //啥也没有
+// p2.then((value)=>console.log(value))  //啥也没有
 
 //--------------------------
 

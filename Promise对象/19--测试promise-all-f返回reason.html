@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const getJson=function(url){
+        const promise=new Promise(function(resolve, reject){
+
+            const handler=function(){
+                if(this.readyState!==4){
+                    return;
+                }
+                if(this.status===200){
+                    resolve(this.response);
+                }
+                else{
+                    reject(new Error(this.statusText));
+                }
+            };
+
+            const client=new XMLHttpRequest();  //XMLHttpRequest也是浏览器提供的宿主对象
+            client.open('GET',url);
+            client.onreadystatechange=handler;
+            client.responseType='json';
+            client.setRequestHeader('Accept','application/json');
+            client.send();
+        });
+
+        return promise;
+    };
+    let promises=['11','22'].map((item)=>getJson(`./json/${item}.json`));
+    promises.push(new Promise(function(resolve, reject){
+        reject("just test failed")
+    }))
+    Promise.all(promises)
+    .then(value => {
+        console.log("value===>",value)
+    },
+    reason => {
+        console.log("reason===>",reason);
+    })
+    // just test failed
+</script>
+</body>
+</html>

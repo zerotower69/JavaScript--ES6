@@ -6,7 +6,7 @@
 
 /**
  * 1.同样接受一组Promise参数然后封装为新的Promise实例返回
- * 2.返回实例的状态由传入的所有Promise实例共同决定，全部变为resolved-->resolved  全部变为rejected --->rejected,也就是等待传入的所有promise实例
+ * 2.返回实例的状态由传入的所有Promise实例共同决定，只要任何一个resolved--->resolved  全部变为rejected --->rejected,也就是等待传入的所有promise实例
  * 改变了，才改变
  */
 

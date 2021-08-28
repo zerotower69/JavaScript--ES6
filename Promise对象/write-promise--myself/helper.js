@@ -5,10 +5,10 @@
  **/
 
 (function(global){
-    const Promise=global.ztPromise ||global.Promise;
+    const ztPromise=global.ztPromise ||global.Promise;
 
-    if(Promise){
-        Promise.prototype.print=function(){
+    if(ztPromise){
+        ztPromise.prototype.print=function(){
             console.log("Promise < "+this.status+" >")
         }
     }
